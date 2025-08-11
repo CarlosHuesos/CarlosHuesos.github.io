@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolio de Datos Jr</title>
+  <meta name="description" content="Portafolio web de Carlos Alberto Campos Huesos. Proyectos con Excel, Power BI, SQL/MySQL y Python." />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b0f14;--panel:#0f1720;--text:#e6f1ff;--muted:#9fb0c3;--primary:#5ee1ff;--accent:#8b5cf6;--shadow:0 10px 30px rgba(0,0,0,.35);--radius:18px}
+    *{box-sizing:border-box}html,body{height:100%}
+    body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(1200px 800px at 80% -10%, rgba(94,225,255,.12), transparent 50%),radial-gradient(900px 600px at -10% 20%, rgba(139,92,246,.12), transparent 40%),var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+    a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}
+    .nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:linear-gradient(180deg,rgba(10,14,20,.75),rgba(10,14,20,.35));border-bottom:1px solid rgba(255,255,255,.06)}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
+    .brand .logo{width:36px;height:36px;border-radius:10px;background:conic-gradient(from 180deg at 50% 50%,var(--primary),var(--accent),var(--primary));box-shadow:0 0 24px rgba(94,225,255,.35)}
+    .nav a{color:var(--text);opacity:.9}.nav-links{display:flex;gap:18px}.nav-cta{padding:10px 14px;border-radius:999px;background:linear-gradient(90deg,var(--primary),var(--accent));color:#001018;font-weight:700;box-shadow:var(--shadow)}
+    .hero{padding:80px 0 40px}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(94,225,255,.12);border:1px solid rgba(94,225,255,.25);color:var(--primary);font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase}
+    h1{font-size:clamp(28px,5vw,48px);line-height:1.06;margin:14px 0 14px}.lead{color:var(--muted);font-size:18px}
+    .cta-row{display:flex;gap:14px;margin-top:22px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.10);background:#0f1823;color:var(--text);font-weight:700}.btn:hover{border-color:rgba(255,255,255,.25)}.btn.primary{background:linear-gradient(90deg,var(--primary),var(--accent));color:#000c12;border:none;box-shadow:var(--shadow)}
+    .hero-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);padding:22px;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .stat{display:grid;grid-template-columns:auto 1fr;gap:10px 12px;align-items:center;margin-bottom:10px}.dot{width:8px;height:8px;border-radius:50%;background:var(--primary);box-shadow:0 0 10px var(--primary)}
+    section{padding:70px 0}.section-title{font-size:26px;margin-bottom:12px}.section-sub{color:var(--muted);margin-bottom:24px}
+    .panel{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:24px}.about .panel{padding:22px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.chip{font-size:12px;padding:6px 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:var(--muted)}
+    .projects-grid{display:grid;grid-template-columns:1fr;gap:20px}
+    .card{display:flex;flex-direction:column;overflow:hidden;border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow);transform:translateZ(0);transition:transform .25s ease,box-shadow .25s ease}.card:hover{transform:translateY(-4px) rotate3d(1,0,0,3deg);box-shadow:0 20px 50px rgba(0,0,0,.45)}
+    .thumb{aspect-ratio:16/9;background:#0a0f15;display:grid;place-items:center;position:relative;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .badge{position:absolute;top:12px;left:12px;background:rgba(10,10,12,.65);border:1px solid rgba(255,255,255,.12);color:var(--primary);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;backdrop-filter:blur(6px)}
+    .card-body{padding:16px;display:grid;gap:10px}.card h3{margin:0;font-size:18px}.meta{font-size:13px;color:var(--muted)}
+    .tags{display:flex;flex-wrap:wrap;gap:6px}.tag{font-size:11px;border:1px solid rgba(255,255,255,.12);color:var(--muted);padding:4px 8px;border-radius:999px}
+    .actions{display:flex;gap:10px;margin-top:2px}.actions a{flex:1;text-align:center;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.12)}.actions a.primary{background:linear-gradient(90deg,var(--primary),var(--accent));color:#061017;border:none;font-weight:700}
+    .gallery{position:relative}.gallery-main{aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06)}
+    .gallery-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:10px;background:rgba(255,255,255,.03)}
+    .gallery-thumbs img{width:100%;height:68px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,.08);cursor:pointer;opacity:.85}
+    .gallery-thumbs img.active{outline:2px solid var(--primary);opacity:1}
+    /* Impacto y metodología */
+    .impact{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:10px}
+    .impact ul{margin:0;padding-left:18px}
+    details.method{border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px 12px;background:rgba(255,255,255,.02)}
+    details.method summary{cursor:pointer;font-weight:700;color:var(--primary)}
+    details.method summary::-webkit-details-marker{display:none}
+    .contact{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}.contact .panel{padding:22px}
+    .email-cta{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;background:linear-gradient(90deg,var(--primary),var(--accent));color:#061017;font-weight:800}
+    footer{color:var(--muted);padding:30px 0 60px;text-align:center;font-size:14px}
+    @media (max-width:960px){.hero-grid,.about,.contact{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Principal">
+    <div class="container nav-inner">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <div class="logo" aria-hidden="true"></div>
+        <span>Carlos Alberto Campos Huesos</span>
+      </a>
+      <div class="nav-links" role="navigation">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="CV.pdf" download>Descargar CV</a>
+        <a href="#contacto" class="nav-cta">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="inicio" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="pill">Portafolio de Datos</span>
+        <h1><span style="background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">Análisis de Datos Jr</span></h1>
+        <p class="lead">Soy <strong>Carlos Alberto Campos Huesos</strong>, recién egresado de <strong>Ingeniería en Sistemas Computacionales</strong> por la <strong>UTEG (2025)</strong>.
+           Me especializo en limpiar, analizar y visualizar datos con <strong>Excel, Power BI, Tableau, MySQL</strong> y <strong>Python</strong>. He aplicado análisis en manufactura (CNC) y actualmente continúo desarrollándome 
+           profesionalmente en el campo del análisis de datos para fortalecer mis habilidades y ampliar mi experiencia.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#proyectos">Ver proyectos</a>
+          <a class="btn" href="#sobre-mi">Conóceme</a>
+          <a class="btn" href="CV.pdf" download>📄 Descargar CV</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Resumen de habilidades">
+        <div class="stat"><span class="dot" aria-hidden="true"></span><div><strong>Excel & Power BI</strong><div class="muted">Tablas dinámicas, Power Query, dashboards</div></div></div>
+        <div class="stat"><span class="dot" aria-hidden="true"></span><div><strong>MySQL</strong><div class="muted">Consultas, JOINs, filtros, vistas</div></div></div>
+        <div class="stat"><span class="dot" aria-hidden="true"></span><div><strong>Python</strong><div class="muted">Pandas, visualización, reglas de asociación</div></div></div>
+        <div class="stat"><span class="dot" aria-hidden="true"></span><div><strong>Tableau</strong><div class="muted">Diseño de dashboards interactivos, visualización comparativa y análisis de tendencias</div></div></div>
+      </aside>
+    </div>
+  </header>
+
+  <section id="proyectos">
+    <div class="container">
+      <h2 class="section-title">Proyectos</h2> <n></n>
+      <p class="section-sub">Casos construidos con <strong>Excel</strong>, <strong>Power BI</strong> y <strong>Python</strong>: limpieza → modelado/medidas → visualización y presentación.</p>
+      <div class="projects-grid" id="grid">
+        <!-- PROYECTO 1: Super Tienda -->
+        <article class="card" tabindex="0" aria-labelledby="p1-title" aria-describedby="p1-desc">
+          <div class="badge">Power BI · Excel</div>
+          <div class="gallery">
+            <div class="gallery-main thumb">
+              <img class="g-main" src="BI D1.png" alt="Dashboard Power BI – Ventas" />
+            </div>
+            <div class="gallery-thumbs">
+              <img class="active" src="BI D1.png" alt="Vista Ventas" data-large="BI D1.png" />
+              <img src="BI D2.png" alt="Vista Ganancias" data-large="BI D2.png" />
+              <img src="BI D3.png" alt="Vista Geografía" data-large="BI D3.png" />
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 id="p1-title">Super Tienda – Ventas, Ganancias, Geografía y Tabla de ventas</h3>
+            <p id="p1-desc" class="meta"><strong>Función:</strong> monitorear ventas totales y margen por categoría/ciudad, detectar pérdidas y entender la distribución geográfica; segmentación por modo de envío y segmento de cliente.</p>
+            <details class="method"><summary>Metodología (Excel → Power BI)</summary>
+              <p class="meta">Depuración en Excel (fechas, normalización de categorías/ciudades, duplicados) → modelo en Power BI (hechos de ventas + dimensiones Producto/Cliente/Envío/Fecha) → con algunas medidas DAX (<em>Ventas</em>, <em>Ganancia</em>, <em>Margen%</em>, <em>TopN</em>) y visuales (barras, dona, serie temporal y mapa).</p>
+            </details>
+            <div class="impact">
+              <ul>
+                <li>Prioriza categorías/ciudades con mayor aporte a ventas y margen.</li>
+                <li>Identifica rutas o modos de envío menos rentables.</li>
+                <li>Soporta decisiones de inventario según estacionalidad.</li>
+              </ul>
+            </div>
+            <div class="tags"><span class="tag">Limpieza</span><span class="tag">Modelado</span><span class="tag">Visualización</span></div>
+            <div class="actions">
+              <a class="primary" href="Primer Dashboard.pbix" download>Descargar.PBIX</a>
+              <a href="#" aria-disabled="true" title="Repositorio próximamente">Repo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROYECTO 2: Sano y Fresco (Excel + Python + Power BI) -->
+        <article class="card" tabindex="0" aria-labelledby="p2-title" aria-describedby="p2-desc">
+          <div class="badge">Excel · Python · Power BI</div>
+          <div class="gallery">
+            <div class="gallery-main thumb">
+              <img class="g-main" src="BI N1.png" alt="Sano y Fresco – KPIs de ventas" />
+            </div>
+            <div class="gallery-thumbs">
+              <img class="active" src="BI N1.png" alt="Vista KPIs y ventas" data-large="BI N1.png" />
+              <img src="BI N2.png" alt="Market Basket Analysis" data-large="BI N2.png" />
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 id="p2-title">Sano y Fresco – Ventas y Recomendaciones (Market Basket)</h3>
+            <p id="p2-desc" class="meta"><strong>¿Para qué sirve?</strong> Une KPIs de negocio con patrones de compra para <strong>decisiones comerciales y de surtido</strong>: ventas totales (~€39.9M), clientes, ticket medio y valor por cliente; estacionalidad mensual y mix de productos. Incluye <em>Market Basket Analysis</em> para descubrir productos que se compran juntos (reglas con <em>confianza</em> y <em>lift</em>) y habilitar <strong>recomendaciones y venta cruzada</strong>.</p>
+            <details class="method"><summary>Metodología (Excel → Python → Power BI)</summary>
+              <p class="meta"><em>Excel</em> para limpieza/normalización (fechas, categorías, duplicados) → <em>Python</em> (Apriori/FP‑Growth) para reglas de asociación y recomendaciones → <em>Power BI</em> para modelado y presentación interactiva (segmentadores por mes/categoría y tablero de reglas).</p>
+            </details>
+            <div class="impact">
+              <ul>
+                <li>Genera bundles y promociones basadas en afinidad.</li>
+                <li>Aumenta ticket medio con recomendaciones en checkout.</li>
+                <li>Optimiza surtido por estacionalidad y top ventas.</li>
+              </ul>
+            </div>
+            <div class="tags"><span class="tag">Limpieza</span><span class="tag">Recomendaciones</span><span class="tag">Power BI</span><span class="tag">Python</span></div>
+            <div class="actions">
+              <a class="primary" href="segundo dashbord.pbix" download>Descargar.PBIX</a>
+              <a href="#" aria-disabled="true" title="Repositorio próximamente">Repo</a>
+            </div>
+          </div>  
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre-mi">
+    <div class="container">
+      <h2 class="section-title">Sobre mí</h2>
+      <p class="section-sub">Habilidades actuales y enfoque de aprendizaje continuo.</p>
+      <div class="about">
+        <div class="panel">
+          <h3>Perfil</h3>
+          <p>Recién egresado de <strong>Ingeniería en Sistemas Computacionales</strong> por la <strong>UTEG</strong> (2025), orientado a <strong>Análisis de Datos</strong>. Experiencia en manufactura (CNC) aplicando prácticas de análisis para producción y tiempos. Construyo proyectos con <strong>Excel</strong>, <strong>Power BI</strong>, <strong>MySQL</strong> y <strong>Python</strong>.</p>
+          <div class="chips" aria-label="Habilidades"><span class="chip">Excel avanzado</span><span class="chip">Power BI</span><span class="chip">MySQL</span><span class="chip">Python</span><span class="chip">Tableau</span></div>
+        </div>
+        <div class="panel">
+          <h3>Formación & Cursos</h3>
+          <ul>
+            <li><strong>Ingeniería en Sistemas Computacionales</strong> – UTEG (Egreso 2025)</li>
+            <li><strong>Ebac</strong>: Curso de analista de datos con certificación SEP</li>
+            <li><strong>A2 Capacitación</strong>: Excel intermedio/avanzado; Power BI; Tableau; SQL</li>
+            <li>Aprendizaje continuo: proyectos guiados y documentación oficial</li>
+          </ul>
+          <h3 style="margin-top:18px">Objetivo</h3>
+          <p>Posición de <strong>Analista de Datos Jr.</strong> donde pueda desarrollar dashboards, automatizar reportes y apoyar decisiones basadas en datos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="container">
+      <h2 class="section-title">Contacto</h2>
+      <p class="section-sub">¿Te interesa conocer más? Escríbeme y con gusto te comparto más datos.</p>
+      <div class="contact">
+        <div class="panel">
+          <h3>Correo</h3>
+          <p>Puedes enviarme un mensaje directo al correo y responderé a la brevedad.</p>
+          <a class="email-cta"
+            href="https://mail.google.com/mail/?view=cm&to=carlosaldeveloper@gmail.com&su=Contacto%20desde%20tu%20portafolio&body=Hola%20Carlos,%20vi%20tu%20portafolio..."
+            target="_blank" rel="noopener">
+            ✉️ &nbsp; Escribir en Gmail - carlosaldeveloper@gmail.com
+          </a>
+        </div>
+        <div class="panel" aria-live="polite">
+          <h3>Disponibilidad</h3>
+          <ul>
+            <li>Guadalajara, Jalisco (MX) · Modalidad presencial o Híbrida</li>
+            <li>Disponibilidad para cambio de residencia</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> Carlos Alberto Campos Huesos</footer>
+
+  <script>
+    // Año
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Galerías independientes
+    document.querySelectorAll('.gallery').forEach(gallery=>{
+      const main = gallery.querySelector('.g-main');
+      const thumbs = gallery.querySelectorAll('.gallery-thumbs img');
+      thumbs.forEach(img=>{
+        img.addEventListener('click',()=>{
+          thumbs.forEach(t=>t.classList.remove('active'));
+          img.classList.add('active');
+          main.src = img.dataset.large; main.alt = img.alt;
+        });
+      });
+    });
+    // Bloquear placeholders
+    document.querySelectorAll('a[aria-disabled="true"]').forEach(a=>{
+      a.addEventListener('click',e=>{e.preventDefault();a.blur();});
+    });
+  </script>
+</body>
+</html>
